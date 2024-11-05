@@ -79,14 +79,14 @@ extension WishMakerViewController {
     }
     
     internal func configureHEXInput() {
-        let stack = createStackView()
         configureInputField()
         
         let input = CustomInputField(title: InputFieldConstants.title, inputField: inputField)
-        stack.addArrangedSubview(input)
-        stack.setHeight(InputFieldConstants.height)
+        input.layer.cornerRadius = Constants.radius
+        input.setHeight(InputFieldConstants.height)
+        input.layer.addBorder(width: 1, color: .black)
         
-        colorChangesStack.addArrangedSubview(stack)
+        colorChangesStack.addArrangedSubview(input)
         updateHEXInputWithCurrentColor()
     }
     
